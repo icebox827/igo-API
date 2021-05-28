@@ -8,7 +8,9 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 # Use postgreSQL as the database for Active Record
-gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'pg', '~> 1.2', '>= 1.2.3', group: :production
+# heroku deploy
+gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -17,6 +19,7 @@ gem 'puma', '~> 5.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
