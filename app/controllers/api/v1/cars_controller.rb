@@ -12,7 +12,7 @@ module Api
       end
 
       def new
-        car = Car.new(car_params)
+        @car = Car.new(car_params)
         render json: @car
       end
 
