@@ -12,12 +12,12 @@ module Api
       end
 
       def new
-        booked_car = Booked_car.new
+        booked_car = BookedCar.new
         render json: BookedCarsSerializer.new(booked_car).serialized_json
       end
 
       def create
-        booked_car = Booked_car.create(booked_car_params)
+        booked_car = BookedCar.create(booked_car_params)
 
         if booked_car.save
           @user = User.find(params[:user_id])
@@ -28,7 +28,7 @@ module Api
       end
 
       def update
-        booked_car = Booked_car.find(params[:id])
+        booked_car = BookedCar.find(params[:id])
 
         if booked_car.update
           render json: BookedCarsSerializer.new(booked_car).serialized_json
@@ -38,7 +38,7 @@ module Api
       end
 
       def destroy
-        booked_car = Booked_car.find(params[:id])
+        booked_car = BookedCar.find(params[:id])
 
         if booked_car.destroy
           head :no_content
