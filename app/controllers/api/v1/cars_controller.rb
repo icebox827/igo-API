@@ -2,45 +2,45 @@ module Api
   module V1
     class CarsController < ApplicationController
       def index
-        cars = Car.all
-        render json: CarsSerializer.new(cars).serialized_json
+        @cars = Car.all
+        render json: @cars
       end
 
       def show
-        car = Car.find(params[:id])
-        render json: CarsSerializer.new(car).serialized_json
+        @car = Car.find(params[:id])
+        render json: @car
       end
 
       def new
         car = Car.new(car_params)
-        render json: CarsSerializer.new(car).serialized_json
+        render json: @car
       end
 
       def create
-        car = Car.new(car_params)
+        @car = Car.new(car_params)
 
-        if car.save
-          render json: CarsSerializer.new(car).serialized_json
+        if @car.save
+          render json: @car, status: :created
         else
           render json: { error: car.errors.messages }, status: 422
         end
       end
 
       def update
-        car = Car.find(params[:id])
+        @car = Car.find(params[:id])
 
-        if car.update
-          render json: CarsSerializer.new(car).serialized_json
+        if @car.update
+          render json: @car, status: :updated
         else
           render json: { error: car.errors.messages }, status: 422
         end
       end
 
       def destroy
-        car = Car.find(params[:id])
+        @car = Car.find(params[:id])
 
-        if car.destroy
-          head :no_content
+        if @car.destroy
+          render json: { status: 'success' }
         else
           render json: { error: car.errors.messages }, status: 422
         end
