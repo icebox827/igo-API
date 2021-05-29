@@ -34,3 +34,14 @@ users = User.create([
     }
   ])
 end
+
+BookedCar.create([
+  {
+    user: User.first,
+    car: Car.first
+  },
+  {
+    user: User.last,
+    car: Car.last
+  }
+])
