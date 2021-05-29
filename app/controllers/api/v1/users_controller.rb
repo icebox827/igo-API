@@ -3,17 +3,16 @@ module Api
     class UsersController < ApplicationController
       def index
         @users = User.all
-
         render json: @users
       end
 
       def create
-        @user = User.create(user_params)
+        @user = User.new(user_params)
 
         if @user.save
           render json: @user, status: :created
         else
-          render json: { error: 'Not created' }, status: :Not_processed
+          render json: { message: @user.error.full_message }, status: :Not_processed
         end
       end
 
