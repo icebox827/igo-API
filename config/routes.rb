@@ -5,6 +5,9 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :create]
       resources :cars
       resources :booked_cars
+      resources :sessions, only: [:create, :destroy]
     end
   end
+
+  delete 'api/v1/sessions/:id', to: 'api/v1/sessions#destroy'
 end
