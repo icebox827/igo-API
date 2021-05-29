@@ -2,47 +2,47 @@ module Api
   module V1
     class CarsController < ApplicationController
       def index
-        @cars = Car.all
-        render json: @cars
+        cars = Car.all
+        render json: CarsSerializer.new(cars).serialized_json
       end
 
       def show
-        @car = Car.find(params[:id])
-        render json: @car
+        car = Car.find(params[:id])
+        render json: CarsSerializer.new(car).serialized_json
       end
 
       def new
-        @car = Car.new(car_params)
-        render json: @car
+        car = Car.new(car_params)
+        render json: CarsSerializer.new(car).serialized_json
       end
 
       def create
-        @car = Car.create(car_params)
+        car = Car.new(car_params)
 
-        if @car.save
-          render json: @car, status: :created
+        if car.save
+          render json: CarsSerializer.new(car).serialized_json
         else
-          render json: { message: @car.error.full_message }, status: :Not_processed
+          render json: { error: car.errors.messages }, status: 422
         end
       end
 
       def update
-        @car = Car.find(params[:id])
+        car = Car.find(params[:id])
 
-        if @car.update
-          render json: @car, status: :updated
+        if car.update
+          render json: CarsSerializer.new(car).serialized_json
         else
-          render json: { message: @car.error.full_message }, status: :Not_processed
+          render json: { error: car.errors.messages }, status: 422
         end
       end
 
       def destroy
-        @car = Car.find(params[:id])
+        car = Car.find(params[:id])
 
-        if @car.destroy
-          render json: @car, status: :destroyed
+        if car.destroy
+          head :no_content
         else
-          render json: { message: @car.error.full_message }, status: :Not_processed
+          render json: { error: car.errors.messages }, status: 422
         end
       end
 
