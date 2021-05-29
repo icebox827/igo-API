@@ -39,7 +39,7 @@ module Api
       def destroy
         @car = Car.find(params[:id])
 
-        if @car.destry
+        if @car.destroy
           render json: @car, status: :destroyed
         else
           render json: { message: @car.error.full_message }, status: :Not_processed
