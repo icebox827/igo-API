@@ -4,14 +4,14 @@ module Api
       def index
         @users = User.all
 
-        render json: UsersRepresenter.new(users).as_json
+        render json: @users
       end
 
       def create
         @user = User.create(user_params)
 
         if @user.save
-          render json: UsersRepresenter.new(users).as_json, status: :created
+          render json: @user, status: :created
         else
           render json: { error: 'Not created' }, status: :Not_processed
         end
