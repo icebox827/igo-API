@@ -22,7 +22,7 @@ module Api
         if @car.save
           render json: @car, status: :created
         else
-          render json: { message: @user.error.full_message }, status: :Not_processed
+          render json: { message: @car.error.full_message }, status: :Not_processed
         end
       end
 
@@ -32,7 +32,7 @@ module Api
         if @car.update
           render json: @car, status: :updated
         else
-          render json: { message: @user.error.full_message }, status: :Not_processed
+          render json: { message: @car.error.full_message }, status: :Not_processed
         end
       end
 
@@ -42,7 +42,7 @@ module Api
         if @car.destry
           render json: @car, status: :destroyed
         else
-          render json: { message: @user.error.full_message }, status: :Not_processed
+          render json: { message: @car.error.full_message }, status: :Not_processed
         end
       end
 
