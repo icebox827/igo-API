@@ -2,20 +2,20 @@ module Api
   module V1
     class UsersController < ApplicationController
       def index
-        users = User.all
-        render json: UsersSerializer.new(users, cars).serialized_json
+        @users = User.all
+        render json: @users
       end
 
       def show
-        user = User.find(params[:id])
-        render json: UsersSerializer.new(user, cars).serialized_json
+        @user = User.find(params[:id])
+        render json: @user
       end
 
       def create
         user = User.create(user_params)
 
         if @user.save
-          render json: UsersSerializer.new(user).serialized_json
+          render json: @user, status: :created
         else
           render json: { error: user.errors.messages }, status: 422
         end
