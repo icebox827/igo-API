@@ -29,7 +29,8 @@ users = User.create([
       color: Faker::Vehicle.color,
       transmission: Faker::Vehicle.transmission,
       seats: 5,
-      image_url: "https://source.unsplash.com/800x600/?car,#{Faker::Vehicle.color.downcase}"
+      image_url: "https://source.unsplash.com/800x600/?car,#{Faker::Vehicle.color.downcase}",
+      user: users.first
     }
   ])
 end
