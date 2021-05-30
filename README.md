@@ -29,15 +29,14 @@ Postgres: >=9.5
 
 ### Setup
 
-`$ git clone https://github.com/acushlakoncept/car-rental-api.git`
-`$ cd car-rental-api`
+`$ git clone https://github.com/icebox827/igo-API.git`
+`$ cd igo-API`
 
-Install gems with:
-`bundle install`
+Install gems with: `bundle install`
 
 Setup database with:
 
-> make sure you have postgress sql installed and running on your system
+> make sure you have postgreSQL installed and running on your system
 `rails db:create`
 `rails db:migrate`
 `rails db:seed`
@@ -88,7 +87,6 @@ The API will expose the following RESTful endpoints.
 ## API Documentation
 
 [Car Rentals API](https://documenter.getpostman.com/view/171080/TW6tKpYs)
-
 
 ## Author
 
