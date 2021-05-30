@@ -4,12 +4,8 @@ A RESTFUL API built with Ruby on Rails. It uses JWT to implement Authentication 
 
 ## :red_circle: Live link
 
-[API Home](https://cush-car.herokuapp.com)
-[Client App](https://hire-a-car-client.herokuapp.com/)
-
-## :red_circle: Video presentation
-
-[Video Link](https://www.youtube.com/watch?v=qC0jjU27ZnQ)
+[API Home](https://igo-api.herokuapp.com)
+[Client App](https://igo-client.herokuapp.com/)
 
 ## :hammer: Built with
 
@@ -83,10 +79,6 @@ The API will expose the following RESTful endpoints.
 | PUT /user/:id           | Update a user                |
 | POST /booked_cars:id    | Booked a car                 |
 | GET /booked_cars        | Get user booked cars         |
-
-## API Documentation
-
-[Car Rentals API](https://documenter.getpostman.com/view/171080/TW6tKpYs)
 
 ## Author
 
