@@ -13,18 +13,22 @@ module Api
         render json: @car
       end
 
-      def new
-        @car = Car.new(car_params)
-        render json: @car
-      end
-
       def create
-        @car = Car.new(car_params)
+        @car = Car.new(
+          make: params[:make],
+          model: params[:model],
+          year: params[:year],
+          color: params[:color],
+          transmission: params[:transmission],
+          image_url: params[:image_url],
+          seats: params[:seats],
+          user_id: @user.id
+        )
 
         if @car.save
           render json: @car, status: :created
         else
-          render json: { error: car.errors.messages }, status: 422
+          render json: { error: @car.errors.messages }, status: 422
         end
       end
 
@@ -34,7 +38,7 @@ module Api
         if @car.update
           render json: @car, status: :updated
         else
-          render json: { error: car.errors.messages }, status: 422
+          render json: { error: @car.errors.messages }, status: 422
         end
       end
 
@@ -48,11 +52,6 @@ module Api
         end
       end
 
-      private
-
-      def car_params
-        params.require(:car).permit(:make, :model, :year, :color, :transmission, :seats, :image_url)
-      end
     end
   end
 end

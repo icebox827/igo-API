@@ -13,19 +13,16 @@ module Api
         render json: @booked_car
       end
 
-      def new
-        @booked_car = BookedCar.new
-        render json: @booked_car
-      end
-
       def create
-        @booked_car = BookedCar.create(booked_car_params)
+        @booked_car = BookedCar.new(
+          user_id: @user.id,
+          car_id: params[:car_id]
+        )
 
-        if booked_car.save
-          @user = User.find(params[:user_id])
+        if @booked_car.save
           render json: @booked_car, status: :created
         else
-          render json: { error: car.errors.messages }, status: 422
+          render json: { error: @booked_car.errors.messages }, status: 422
         end
       end
 
@@ -35,7 +32,7 @@ module Api
         if @booked_car.update
           render json: @booked_car, status: :updated
         else
-          render json: { error: car.errors.messages }, status: 422
+          render json: { error: @booked_car.errors.messages }, status: 422
         end
       end
 
@@ -45,15 +42,10 @@ module Api
         if @booked_car.destroy
           render json: { status: 'success' }
         else
-          render json: { error: car.errors.messages }, status: 422
+          render json: { error: @booked_car.errors.messages }, status: 422
         end
       end
 
-      private
-
-      def booked_car_params
-        params.require(:booked_car).permit(:user_id, :car_id)
-      end
     end
   end
 end
