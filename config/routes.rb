@@ -7,13 +7,10 @@ Rails.application.routes.draw do
       resources :users, only: %i[index show create]
       resources :cars
       resources :booked_cars
-      resources :sessions, only: %i[create destroy]
+      post 'login', to: 'authentication#login'
     end
   end
 
   get '*path', to: 'pages#index', via: :all
 
-  scope :sessions do
-    get 'sign_out' => 'sessions#destroy'
-  end
 end

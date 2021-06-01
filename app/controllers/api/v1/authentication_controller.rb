@@ -5,7 +5,7 @@ module Api
         @user = User.find_by(params[:username])
 
         if !@user
-          render json: { message: 'Invalide username'}
+          render json: { message: 'Invalide username' }
         elsif @user.authenticate(params[:password])
           secret_key = Rails.application.secrets.secret_key_base[0]
 
@@ -17,6 +17,5 @@ module Api
         end
       end
     end
-
   end
 end
