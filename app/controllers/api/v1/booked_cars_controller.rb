@@ -45,7 +45,6 @@ module Api
           render json: { error: @booked_car.errors.messages }, status: 422
         end
       end
-
     end
   end
 end

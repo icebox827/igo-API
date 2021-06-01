@@ -51,7 +51,6 @@ module Api
           render json: { error: car.errors.messages }, status: 422
         end
       end
-
     end
   end
 end

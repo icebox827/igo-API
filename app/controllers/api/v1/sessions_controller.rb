@@ -1,5 +1,5 @@
-module Api 
-  module V1 
+module Api
+  module V1
     class SessionsController < ApplicationController
       def new; end
 

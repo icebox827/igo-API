@@ -24,7 +24,6 @@ module Api
           render json: { error: @user.errors.messages }, status: 422
         end
       end
-
     end
   end
 end
