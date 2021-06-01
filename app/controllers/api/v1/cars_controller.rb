@@ -1,6 +1,8 @@
 module Api
   module V1
     class CarsController < ApplicationController
+      before_action :authenticate, only: [:create]
+
       def index
         @cars = Car.all
         render json: @cars
