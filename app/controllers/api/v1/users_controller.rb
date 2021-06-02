@@ -19,9 +19,9 @@ module Api
         )
 
         if @user.save
-          render json: @user, status: :created
+          render json: { message: 'User created successfully' }, status: :created
         else
-          render json: { error: @user.errors.messages }, status: 422
+          render json: { error: @user.errors.full_messages }, status: 422
         end
       end
     end
