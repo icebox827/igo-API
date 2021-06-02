@@ -10,7 +10,7 @@ module Api
 
           token = JWT.encode({ user_id: @user.id, username: @user.username }, secret_key)
 
-          render json: { token: token }
+          render json: { token: token }, status: :ok
         else
           render json: { error: 'Invalid password' }
         end
