@@ -9,8 +9,9 @@ module Api
         if @user
           session[:user_id] = @user.id
           session[:username] = @user.username
+          render json: { message: 'Login successfully' }
         else
-          render json: { status: 404 }
+          render json: { error: 'Invalid user' }, status: 404
         end
       end
 

@@ -4,7 +4,7 @@ module Api
       def login
         @user = User.find_by(username: params[:username])
         if !@user
-          render json: { message: 'Invalid username' }
+          render json: { error: 'Invalid username' }
         elsif @user.authenticate(params[:password])
           secret_key = Rails.application.secrets.secret_key_base[0]
 
@@ -12,7 +12,7 @@ module Api
 
           render json: { token: token }
         else
-          render json: { message: 'Invalid password' }
+          render json: { error: 'Invalid password' }
         end
       end
     end
