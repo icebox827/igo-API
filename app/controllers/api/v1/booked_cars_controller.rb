@@ -20,7 +20,7 @@ module Api
         )
 
         if @booked_car.save
-          render json: @booked_car, status: :created
+          render json: { message: 'Car booked succesfully' }, status: :created
         else
           render json: { error: @booked_car.errors.messages }, status: 422
         end
