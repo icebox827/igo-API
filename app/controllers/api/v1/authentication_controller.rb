@@ -9,7 +9,7 @@ module Api
           secret_key = '5496fs6a6rgra6g1'
           token = JWT.encode({ user_id: @user.id, username: @user.username }, secret_key)
 
-          render json: { token: token }, status: :ok
+          render json: { token: token, admin: @user.admin }, status: :ok
         else
           render json: { error: 'Invalid password' }
         end
