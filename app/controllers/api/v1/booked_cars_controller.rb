@@ -7,7 +7,7 @@ module Api
         @booked_cars =  if @user.admin == true
                           BookedCar.all
                         else
-                          @user.BookedCars
+                          @user.cars
                         end
         render json: @booked_cars
       end
