@@ -10,42 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_213925) do
-
+ActiveRecord::Schema.define(version: 20_210_529_213_925) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "booked_cars", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "car_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["car_id"], name: "index_booked_cars_on_car_id"
-    t.index ["user_id"], name: "index_booked_cars_on_user_id"
+  create_table 'booked_cars', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'car_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['car_id'], name: 'index_booked_cars_on_car_id'
+    t.index ['user_id'], name: 'index_booked_cars_on_user_id'
   end
 
-  create_table "cars", force: :cascade do |t|
-    t.string "make"
-    t.string "model"
-    t.integer "year"
-    t.string "color"
-    t.string "transmission"
-    t.string "image_url"
-    t.integer "seats"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_cars_on_user_id"
+  create_table 'cars', force: :cascade do |t|
+    t.string 'make'
+    t.string 'model'
+    t.integer 'year'
+    t.string 'color'
+    t.string 'transmission'
+    t.string 'image_url'
+    t.integer 'seats'
+    t.integer 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_cars_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
-    t.boolean "admin", default: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'username'
+    t.string 'password_digest'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'email'
+    t.boolean 'admin', default: false
   end
 
-  add_foreign_key "cars", "users"
+  add_foreign_key 'cars', 'users'
 end
