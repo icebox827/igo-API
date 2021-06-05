@@ -4,7 +4,7 @@ module Api
       before_action :authenticate, only: [:create, :index]
 
       def index
-        @booked_cars = @user.BookedCar
+        @booked_cars = @user.BookedCars
         render json: @booked_cars
       end
 
