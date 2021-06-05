@@ -1,10 +1,10 @@
 module Api
   module V1
     class BookedCarsController < ApplicationController
-      before_action :authenticate, only: [:create]
+      before_action :authenticate, only: [:create, :index]
 
       def index
-        @booked_cars = BookedCar.all
+        @booked_cars = @user.BookedCars
         render json: @booked_cars
       end
 
