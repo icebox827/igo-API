@@ -20,14 +20,7 @@ module Api
       def create
         @booked_car = BookedCar.new(
           user_id: @user.id,
-          car_id: params[:car_id],
-          make: params[:make],
-          model: params[:model],
-          year: params[:year],
-          transmission: params[:transmission],
-          color: params[:color],
-          seats: params[:seats],
-          image_url: params[:image_url]
+          car_id: params[:car_id]
         )
 
         if @booked_car.save
