@@ -4,12 +4,11 @@ module Api
       before_action :authenticate, only: %i[create index]
 
       def index
-        @booked_cars =  if @user.admin == true
-                          BookedCar.all
-                        else
-                          @user.cars
-                        end
-        render json: @booked_cars
+        if @user.admin == true
+          render json: BookedCar.all.includes(:car)
+        else
+          render json: @user.cars
+        end
       end
 
       def show
