@@ -5,7 +5,7 @@ module Api
 
       def index
         if @user.admin == true
-          render json: :booked_cars, include: :car
+          render json: BookedCar.all, include: %i[car user]
         else
           render json: @user.cars
         end
