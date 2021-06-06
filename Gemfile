@@ -40,7 +40,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.0'
   gem 'hirb'
   gem 'rdoc', '~> 6.3'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'shoulda-matchers', '~> 3.1'
 end
 

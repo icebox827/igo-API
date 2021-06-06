@@ -13,6 +13,6 @@ RSpec.describe Car, type: :model do
 
   describe 'associations' do
     it { should have_many(:booked_cars) }
-    it { should belongs_to(:user) }
+    it { should have_many(:users) }
   end
 end
