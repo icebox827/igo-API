@@ -17,10 +17,11 @@ module Api
       end
 
       def create
-        @booked_car = BookedCar.new(
-          user_id: @user.id,
-          car_id: params[:car_id]
-        )
+        @booked_car = @user.booked_cars.build(booking_params)
+        # @booked_car = BookedCar.new(
+        #   user_id: @user.id,
+        #   car_id: params[:car_id]
+        # )
 
         if @booked_car.save
           render json: { message: 'Car booked succesfully' }, status: :created
@@ -47,6 +48,12 @@ module Api
         else
           render json: { error: @booked_car.errors.messages }, status: 422
         end
+      end
+
+      private
+
+      def booking_params
+        params.require(:booked_car).permit(:car_id)
       end
     end
   end
