@@ -1,7 +1,7 @@
 module Api
   module V1
     class AuthenticationController < ApplicationController
-      def login
+      def create
         @user = User.find_by(username: params[:username])
         if !@user
           render json: { error: 'Invalid username' }

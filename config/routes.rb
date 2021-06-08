@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'pages#index'
 
   namespace :api do
     namespace :v1, default: { format: :json } do
@@ -8,13 +7,8 @@ Rails.application.routes.draw do
       resources :cars
       resources :booked_cars
       resources :sessions
-      post 'login', to: 'authentication#login'
+      resources :authentication, only: %i[create]
     end
   end
 
-  get '*path', to: 'pages#index', via: :all
-
-  scope :sessions do
-    get 'sign_out' => 'sessions#destroy'
-  end
 end

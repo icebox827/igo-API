@@ -75,6 +75,10 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -220,6 +224,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner
+  dotenv-rails (~> 2.7, >= 2.7.6)
   factory_bot_rails (~> 4.0)
   faker
   fast_jsonapi (~> 1.5)
@@ -241,7 +246,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 2.7.3
 
 BUNDLED WITH
    2.2.14
