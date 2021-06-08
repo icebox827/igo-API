@@ -10,5 +10,4 @@ Rails.application.routes.draw do
       resources :authentication, only: %i[create]
     end
   end
-
 end
