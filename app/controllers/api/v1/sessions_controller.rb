@@ -11,13 +11,13 @@ module Api
           session[:username] = @user.username
           render json: { message: 'Login successfully' }
         else
-          render json: { error: 'Invalid user' }, status: 404
+          render json: { error: 'Invalid user' }
         end
       end
 
       def destroy
         reset_session
-        flash[:success] = 'Logout succesfully'
+        render json: { message: 'Logout successfully' }
       end
     end
   end
