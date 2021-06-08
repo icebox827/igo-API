@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
@@ -19,7 +19,6 @@ gem 'puma', '~> 5.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'fast_jsonapi', '~> 1.5'
@@ -45,6 +44,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'figaro', '~> 1.2'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
