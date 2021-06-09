@@ -7,7 +7,8 @@ module Api
           render json: { error: 'Invalid username' }
         elsif @user.authenticate(params[:password])
           # secret_key = Rails.application.secrets.secret_key_base[0]
-          secret_key = '5496fs6a6rgra6g1'
+          secret_key = ENV['SECRET_KEY']
+          # secret_key = '5496fs6a6rgra6g1'
           token = JWT.encode({ user_id: @user.id, username: @user.username }, secret_key)
 
           render json: { token: token, admin: @user.admin }, status: :ok
