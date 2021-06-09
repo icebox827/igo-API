@@ -19,7 +19,7 @@ gem 'puma', '~> 5.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
-gem 'figaro', '~> 1.2'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'fast_jsonapi', '~> 1.5'
@@ -37,7 +37,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
-  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'hirb'
   gem 'rdoc', '~> 6.3'
