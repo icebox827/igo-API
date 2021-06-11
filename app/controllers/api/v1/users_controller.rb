@@ -12,17 +12,19 @@ module Api
       end
 
       def create
-        @user = User.create(
-          username: params[:username],
-          email: params[:email],
-          password: params[:password]
-        )
+        @user = User.create(user_params)
 
         if @user.save
           render json: { message: 'User created successfully' }, status: :created
         else
           render json: { error: @user.errors.full_messages }, status: 422
         end
+      end
+
+      private 
+
+      def user_params
+        params.require(:user).permit(:username, :email, :password)
       end
     end
   end
