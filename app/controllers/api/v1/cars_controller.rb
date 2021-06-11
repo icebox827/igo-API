@@ -26,7 +26,7 @@ module Api
       def update
         @car = Car.find(params[:id])
 
-        if @car.update
+        if @car.update(car_params)
           render json: @car, status: :updated
         else
           render json: { error: @car.errors.messages }, status: 422

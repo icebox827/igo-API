@@ -29,7 +29,7 @@ module Api
       def update
         @booked_car = BookedCar.find(params[:id])
 
-        if @booked_car.update
+        if @booked_car.update(booking_params)
           render json: @booked_car, status: :updated
         else
           render json: { error: @booked_car.errors.messages }, status: 422
