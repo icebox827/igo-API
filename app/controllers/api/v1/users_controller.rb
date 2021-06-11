@@ -12,7 +12,7 @@ module Api
       end
 
       def create
-        @user = User.create(user_params)
+        @user = User.new(user_params)
 
         if @user.save
           render json: { message: 'User created successfully' }, status: :created
