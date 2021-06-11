@@ -5,6 +5,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :email, with: /\A\S+@.+\.\S+\z/
 
-  has_many :booking, through: :booked_cars
-  has_many :cars
+  has_many :booked_cars
+  has_many :cars, through: :booked_cars
 end
