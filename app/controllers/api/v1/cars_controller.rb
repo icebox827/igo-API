@@ -14,16 +14,7 @@ module Api
       end
 
       def create
-        @car = Car.new(
-          make: params[:make],
-          model: params[:model],
-          year: params[:year],
-          color: params[:color],
-          transmission: params[:transmission],
-          image_url: params[:image_url],
-          seats: params[:seats],
-          user_id: @user.id
-        )
+        @car = @user.cars.build(car_params)
 
         if @car.save
           render json: @car, status: :created
@@ -50,6 +41,12 @@ module Api
         else
           render json: { error: car.errors.messages }, status: 422
         end
+      end
+
+      private
+
+      def car_params
+        params.require(:car).permit(:make, :model, :year, :color, :transmission, :image_url, :seats)
       end
     end
   end
