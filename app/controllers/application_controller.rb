@@ -4,8 +4,7 @@ class ApplicationController < ActionController::API
 
     if authorization_header
       token = authorization_header.split[1]
-      # secret_key = ENV['SECRET_KEY']
-      secret_key = '5496fs6a6rgra6g1'
+      secret_key = ENV['SECRET_KEY']
       decoded_token = JWT.decode(token, secret_key)
 
       @user = User.find(decoded_token[0]['user_id'])
