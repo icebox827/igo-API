@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       resources :users, only: %i[index show create]
       resources :cars
       resources :booked_cars
-      resources :sessions
       resources :authentication, only: %i[create]
     end
   end
