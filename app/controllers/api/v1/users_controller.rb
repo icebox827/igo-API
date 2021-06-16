@@ -13,7 +13,6 @@ module Api
 
       def create
         @user = User.new(user_params)
-        @user.password = params[:password]
         if @user.save
           render json: { message: 'User created successfully' }, status: :ok
         else
@@ -24,7 +23,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:username, :email)
+        params.permit(:username, :email, :password)
       end
     end
   end
