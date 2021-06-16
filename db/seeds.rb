@@ -5,3 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+users = User.create([
+                      {
+                        username: 'Denis',
+                        email: 'admin@admin.com',
+                        password: 'admin1234',
+                        admin: true
+                      },
+                      {
+                        username: 'Atef',
+                        email: 'user@admin.com',
+                        password: 'user1234',
+                        admin: false
+                      }
+                    ])
+
+30.times do
+  Car.create([
+               {
+                 make: Faker::Vehicle.make,
+                 model: Faker::Vehicle.model,
+                 year: Faker::Vehicle.year,
+                 color: Faker::Vehicle.color,
+                 transmission: Faker::Vehicle.transmission,
+                 seats: 5,
+                 image_url: "https://source.unsplash.com/800x600/?car,#{Faker::Vehicle.color.downcase}",
+                 user: users.first
+               }
+             ])
+end
+
+BookedCar.create([
+                   {
+                     user: User.first,
+                     car: Car.first
+                   },
+                   {
+                     user: User.last,
+                     car: Car.last
+                   }
+                 ])
